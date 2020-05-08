@@ -6,7 +6,6 @@ public class post {
     String title;
     String body;
     Date date;
-
     public String getTitle() {
         return title;
     }
