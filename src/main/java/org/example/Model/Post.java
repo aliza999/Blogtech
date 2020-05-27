@@ -1,10 +1,11 @@
 package org.example.Model;
 
+import javax.annotation.sql.DataSourceDefinition;
 import javax.persistence.*;
 import java.util.Date;
 @Entity
-@Table(name="post")
-public class post {
+@Table(name="posts")
+public class Post {
     @Id
     @Column(name="id")
      private Integer id;

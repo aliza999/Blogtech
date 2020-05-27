@@ -1,27 +1,27 @@
 package org.example.Controller;
 
-import org.example.Model.UserPost;
-import org.example.Model.post;
-import org.example.Services.postServices;
+import org.example.Model.Post;
+import org.example.Services.PostServices;
+import org.example.Services.PostServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class postController {
     @Autowired
-    postServices postService;
+    PostServices postService;
 
     @RequestMapping("posts")
     public String getUsersPosts(Model model)//CRUD operations
 
     {
-        ArrayList<post> listt = postService.getOnePost();
+        List<Post> listt =postService.getOnePost();
         model.addAttribute("posts", listt);
         return "posts";
     }
@@ -32,9 +32,10 @@ public class postController {
         return "posts/createPost";
     }
     @RequestMapping(value="posts/CreatePost",method=RequestMethod.POST)
-    public String SavePost(post postx)
+    public String SavePost(Post postx)
     {
         postService.createPost(postx); //ui se data database me jaau via post services
         return "redirect:/posts";
     }
 }
+
