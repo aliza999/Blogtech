@@ -5,17 +5,17 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "Post")
+@Table(name="Post") //table name is Post and TechnicalBlog is my db name
 public class Post {
 
     @Id
-    @Column(name = "id")
+    @Column(name ="id")
     private Integer id;
 
-    @Column(name = "title")
+    @Column(name ="title")
     private String title;
 
-    @Column(name = "body")
+    @Column(name ="body")
     private String body;
 
     private Date date;
