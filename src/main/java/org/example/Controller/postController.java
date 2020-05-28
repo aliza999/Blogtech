@@ -17,14 +17,14 @@ public class postController {
     @Autowired
     PostServices postService;
 
-    @RequestMapping("posts")
+     /* @RequestMapping("posts")
     public String getUsersPosts(Model model)//CRUD operations
 
     {
         List<Post> listt =postService.getOnePost();
         model.addAttribute("posts", listt);
         return "posts";
-    }
+    } */
     @RequestMapping("/user/CreatePost")
 
     public String CreatePost()

@@ -5,10 +5,7 @@ import org.example.Model.User;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceUnit;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,18 +13,18 @@ import java.util.List;
 @Service
 public class PostServices {
 
-    @PersistenceUnit(unitName="TechnicalBlog")
+    @PersistenceUnit(name="TechnicalBlog")
     private EntityManagerFactory emf;
     public List getAllPost()
     {
-        List<Post> p=new ArrayList<>();
+        List<Post> pp=new ArrayList<Post>();
        EntityManager em= emf.createEntityManager();
-      TypedQuery<Post>tp= em.createQuery("SELECT p from Post p",Post.class);
-        List<Post> rs = tp.getResultList();
-        return rs;
+      TypedQuery<Post> tp= em.createQuery("SELECT P from Post P", Post.class);
+        pp = tp.getResultList();
+        return pp;
     }
-    public List getOnePost()
-    {List <Post> list1=new ArrayList<>();
+   /* public List getOnePost()
+    {List <Post> list1=new ArrayList<Post>();
         Connection c=null;
         try {
             Class.forName("org.postgresql.Driver");
@@ -45,7 +42,7 @@ pp.setTitle(res.getString("body"));
             e.printStackTrace();
         }
 return list1;
-    }
+    }*/
     public  void createPost(Post u)
     {
 

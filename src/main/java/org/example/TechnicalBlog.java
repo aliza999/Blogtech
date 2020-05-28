@@ -7,9 +7,9 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.XADataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
-@ComponentScan()
-@EntityScan()
-@EnableAutoConfiguration()
+
+
+
 public class  TechnicalBlog
 {
     public static void main(String[] args)
