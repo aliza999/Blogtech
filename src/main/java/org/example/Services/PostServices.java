@@ -13,13 +13,13 @@ import java.util.List;
 @Service
 public class PostServices {
 
-    @PersistenceUnit(name="TechnicalBlog")
+    @PersistenceUnit(name="technicalblog")
     private EntityManagerFactory emf;
     public List getAllPost()
     {
         List<Post> pp=new ArrayList<Post>();
        EntityManager em= emf.createEntityManager();
-      TypedQuery<Post> tp= em.createQuery("SELECT P from Post P", Post.class);
+      TypedQuery<Post> tp= em.createQuery("SELECT p from Post p", Post.class);
         pp = tp.getResultList();
         return pp;
     }

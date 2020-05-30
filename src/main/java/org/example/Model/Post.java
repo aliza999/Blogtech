@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name="Post") //table name is Post and TechnicalBlog is my db name
+@Table(name="posts") //table name is Post and TechnicalBlog is my db name
 public class Post {
 
     @Id
@@ -18,6 +18,7 @@ public class Post {
     @Column(name ="body")
     private String body;
 
+@Transient
     private Date date;
 
 

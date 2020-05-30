@@ -14,7 +14,7 @@ public class jpaConfig {
     public EntityManagerFactory entityManagerFactory()
     {
         LocalContainerEntityManagerFactoryBean emfb=new LocalContainerEntityManagerFactoryBean();
-        emfb.setPersistenceXmlLocation("Classpath:META-INF/persistence.xml");
+        emfb.setPersistenceXmlLocation("classpath:META-INF/persistence.xml");
         emfb.afterPropertiesSet(); //wil initialize the factory object
         return emfb.getObject();//will return enttymanagerfactory
     }
@@ -23,7 +23,7 @@ public class jpaConfig {
     {
         DriverManagerDataSource ds =new DriverManagerDataSource();
         ds.setDriverClassName("org.postgresql.Driver");
-        ds.setUrl("jdbc:postgresql://localhost:5433/TechnicalBlog");
+        ds.setUrl("jdbc:postgresql://localhost:5433/technicalblog");
         ds.setUsername("postgres");
         ds.setPassword("9814453900");
         return ds;
