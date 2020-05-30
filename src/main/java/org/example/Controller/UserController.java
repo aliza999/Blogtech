@@ -34,7 +34,7 @@ public class UserController {
     @RequestMapping(value="users/logout",method=RequestMethod.POST)
     public String logout(Model m)
     {
-        List<Post> posts=service.getAllPost();
+        List<Post> posts=service.getAllPosts();
         m.addAttribute("posts",posts);
         return "index";
     }

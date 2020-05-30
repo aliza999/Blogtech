@@ -17,11 +17,11 @@ public HomeController()
     System.out.println("*****home****");
 }
     @Autowired
-     PostServices services;//loose coupling
+     PostServices services;     //loose coupling
     @RequestMapping("/")
     public String getPost(Model model)
     {
- List<Post> posts=services.getAllPost();
+ List<Post> posts=services.getAllPosts();
 model.addAttribute("posts",posts);
 return "index";
     }
