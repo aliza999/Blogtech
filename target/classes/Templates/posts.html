@@ -12,7 +12,10 @@
 <i> posted on:</i> <span th:text="${d.date}"></span>
 <div>
     <p th:text="${d.body}"></p>
-</div>
+
+    <div>
+        <a th:href="@{/editPost/(postId=${d.id}) }">Edit</a>
+    </div>
 </post>
 </main>
 </body>

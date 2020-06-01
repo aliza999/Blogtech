@@ -1,0 +1,22 @@
+<!Doctype html>
+<html xmlns:th="http://thymeleaf.org">
+<head replace="layout::site-head">
+    <title>Spring MVC Application</title>
+</head>
+<header th:replace="layout::logged-out"></header>
+<h1>Create New Post </h1>
+<form th:method="put" th:action=" @{/editPost(postId=${p1.id})}">
+    <div>post Title:
+    <div>
+    <input type="text" name="title" size="90" th:value="${p1.title}"/>
+    </div>
+    </div>
+    <div>
+        Description:
+        <div>
+        <textarea row="8" cols="80" name="body" th:text="${p1.body}"> </textarea>
+    </div>
+    <input type="submit" value="Submit"/>
+    </div>
+</form>
+</html>

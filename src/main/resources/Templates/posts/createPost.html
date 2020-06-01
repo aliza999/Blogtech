@@ -1,4 +1,4 @@
-<!Doctype html>
+ <!Doctype html>
 <html xmlns:th="http://thymeleaf.org">
 <head>
     <title>CreatePost</title>
@@ -8,7 +8,7 @@
 <div>
     <h2><i>post here </i> </h2>
 </div>
-<form method="post" th:action="@{/posts/CreatePost}">
+<form th:method="post" th:action="@{/posts/CreatePost}">
     <div>
         <label for="title">title</label>
         <input type="text" id="title" name="title"/> </div>

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 public class UserServices {
 public boolean login(User u)
 {
+
     if(u.getUsername().equals("valid"))
         return true;
     else

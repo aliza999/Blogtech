@@ -13,6 +13,7 @@ import java.util.List;
 @Controller
 public class HomeController {
 public HomeController()
+
 {
     System.out.println("*****home****");
 }

@@ -11,41 +11,35 @@ import javax.persistence.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 @Service
 public class PostServices {
-@Autowired
-PostRepository repo;
-public List<Post>getAllPosts()
-{
+    @Autowired
+    PostRepository repo;
 
-    return repo.getAllPosts();
+    public List<Post> getAllPosts() {
 
-}
-    public Post getOnePost()
-    {  return repo.getLatestPost();
-        /*List <Post> list1=new ArrayList<Post>();
-        Connection c=null;
-        try {
-            Class.forName("org.postgresql.Driver");
-            c = DriverManager.getConnection("jdbc:postgresql://localhost:5433/technicalblog", "postgres", "9814453900");
-            Statement s = c.createStatement();
-            ResultSet res = s.executeQuery("SELECT * FROM posts where id=2");
-            while (res.next()) {
-Post pp=new Post();
-pp.setTitle(res.getString("title"));
-pp.setTitle(res.getString("body"));
-
-            }
-        }
-        catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-return list1; */
+        return repo.getAllPosts();
 
     }
-    public  void createPost(Post u)
-    {
 
+    public Post getOnePost() {
+        return repo.getLatestPost();
+
+    }
+
+    public void createPost(Post newPost)
+    {  newPost.setDate(new Date());
+        repo.getOnePost(newPost);
+    }
+
+    public Post getPost(Integer pid) {
+         return repo.getPost(pid);
+    }
+    public  void updatePost(Post p)
+    {
+        p.setDate(new Date());
+          repo.update(p);
     }
 }
