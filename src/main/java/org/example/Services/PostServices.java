@@ -42,4 +42,8 @@ public class PostServices {
         p.setDate(new Date());
           repo.update(p);
     }
+    public void deletePost(Integer id)
+    {
+        repo.deletePost(id);
+    }
 }

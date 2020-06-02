@@ -6,13 +6,17 @@
 <header th:replace="layout::logged-out">
 </header>
 <body>
-    <form method="post" th:object="${User}">
+    <form  th:action="@{/users/register}" th:method="post" th:object="${User}">
     <label for="username"> Username </label>
-    <input type="text" id="username" name="username">
+    <input type="text" id="username" name="username" th:field="${User.username}"/>
     <label for="password" > password </label>
-    <input type="password" id="password" name="password">
-    <label for="fullName">fullName </label>
-    <input type="text" id="fullName"  name="fullname">
+    <input type="password" id="password" name="password"  th:field="${User.password}"/>
+    <label for="fullname">fullName </label>
+    <input type="text" id="fullname"  name="fullName" th:field="${User.profile.fullName}"/>
+        <label for="email"> Email </label>
+        <input type="text" id="email" name="email" th:field="${User.profile.email}"/>
+        <label for ="mobileNo">MobileNo</label>
+        <input type="text" id="mobileNo" name="mobile" th:field="${User.profile.mobile}"/>
     <input type="submit" value="Register">
 </form>
 </body>

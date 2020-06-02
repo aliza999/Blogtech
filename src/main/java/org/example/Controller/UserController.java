@@ -1,6 +1,7 @@
 package org.example.Controller;
 import org.example.Model.User;
 import org.example.Model.Post;
+import org.example.Model.UserProfile;
 import org.example.Services.PostServices;
 import org.example.Services.UserServices;
 import org.example.Services.PostServices;
@@ -39,13 +40,18 @@ public class UserController {
         return "index";
     }
     @RequestMapping("users/register")
-    public String getRegister()
-    {
+    public String getRegister( Model model)
+    {   User u=new User();
+        UserProfile uprofile=new UserProfile();
+        u.setProfile(uprofile); //empty model bna kr bheja q k mapping hai tables mein
+        model.addAttribute("User",u);
         return "users/registerr";
     }
     @RequestMapping(value="users/register",method=RequestMethod.POST)
     public String getRegisterUser(User user)
+
     {
+        servicesOfUser.registerUser(user);
         return "users/login";
     }
    /*@RequestMapping("/user/CreatePost")

@@ -54,4 +54,20 @@ public class PostRepository {
             et.rollback();
         }
     }
+    public void deletePost(Integer id)
+    {
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction et = em.getTransaction();
+        try
+        {
+            et.begin();
+            Post postt= em.find(Post.class,id);
+            em.remove(postt);  // we are updating the values
+            et.commit();
+        }
+        catch (Exception e)
+        {
+            et.rollback();
+        }
+    }
 }
