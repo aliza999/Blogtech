@@ -21,13 +21,14 @@ public class UserController {
     private UserServices servicesOfUser;
     @RequestMapping("users/login")
     public String login()
+
     {
         return "users/login";
     }
     @RequestMapping(value="users/login",method= RequestMethod.POST)
     public String login(User user)
     {
-        if(servicesOfUser.login(user))
+        if(servicesOfUser.login(user)!=null)
         return "redirect:/posts";
     else
         return "users/login";

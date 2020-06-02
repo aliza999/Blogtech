@@ -3,10 +3,7 @@ package org.example.repository;
 import org.example.Model.User;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.PersistenceUnit;
+import javax.persistence.*;
 
 @Repository
 public class UserRepository {
@@ -25,5 +22,22 @@ public class UserRepository {
         {
             et.rollback();
         }
+    }
+    public User checkUser(String username,String password)
+    {
+       EntityManager em= emf.createEntityManager();
+       try {
+           TypedQuery<User> tp = em.createQuery(" SELECT u FROM User u where u.username=:username AND u.password=:password", User.class); //dynamic query
+
+           tp.setParameter("username", username);
+           tp.setParameter("password", password);
+
+           return tp.getSingleResult();//   no resultexception
+       }
+       catch(Exception e)
+       {
+           return null;
+       }
+
     }
 }

@@ -10,15 +10,17 @@ import org.springframework.stereotype.Service;
 public class UserServices {
     @Autowired
     UserRepository userRepo;
-public boolean login(User u)
-{
+public User login(User u)
+{ User existingUser= userRepo.checkUser(u.getUsername(),u.getPassword());
 
-    if(u.getUsername().equals("valid"))
-        return true;
+    if(existingUser!=null)
+
+        return existingUser;
     else
-        return false;
+        return null;
 }
 public void registerUser(User u)
+
 {
     userRepo.register(u);
 }
