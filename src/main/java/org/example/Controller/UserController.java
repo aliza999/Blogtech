@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -26,17 +27,22 @@ public class UserController {
         return "users/login";
     }
     @RequestMapping(value="users/login",method= RequestMethod.POST)
-    public String login(User user)
+    public String login(User user, HttpSession session)
     {
-        if(servicesOfUser.login(user)!=null)
-        return "redirect:/posts";
+        User existingUser=servicesOfUser.login(user);
+        if (existingUser != null) {
+            session.setAttribute("loggedUser",existingUser);//yaha se layout pe jao
+            return "redirect:/posts";
+        }
     else
         return "users/login";
     }
     @RequestMapping(value="users/logout",method=RequestMethod.POST)
-    public String logout(Model m)
+    public String logout(Model m,HttpSession session)
     {
+         session.invalidate();
         List<Post> posts=service.getAllPosts();
+
         m.addAttribute("posts",posts);
         return "index";
     }

@@ -11,6 +11,8 @@
 </header>
 <header th:fragment="logged-in" th:remove="tag">
     <header>
+        <b>logged-in as:</b>
+        <label th:text="${session.loggedUser.profile.fullName}"></label>
         <div>
             <form method="post" th:action="@{/user/CreatePost}">
             <input type="submit" value="Create Post">

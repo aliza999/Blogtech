@@ -34,7 +34,8 @@ public class PostServices {
         repo.getOnePost(newPost);
     }
 
-    public Post getPost(Integer pid) {
+    public Post getPost(Integer pid)
+    {
          return repo.getPost(pid);
     }
     public  void updatePost(Post p)
