@@ -3,6 +3,8 @@ package org.example.Model;
 import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="users")
@@ -19,6 +21,8 @@ public class User {
     @OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)                   //one 2 one mapping hai users k pass foreign key hai q k users is parent entity
     @JoinColumn(name="profile_id")
     private UserProfile profile;
+ @OneToMany(mappedBy="user",cascade =CascadeType.REMOVE,fetch=FetchType.LAZY )
+ List<Post> posts=new ArrayList();
 
     public UserProfile getProfile() {
         return profile;
