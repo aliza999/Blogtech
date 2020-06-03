@@ -47,7 +47,8 @@ public class UserProfile
         return mobile;
     }
 
-    public void setMobile(String mobile) {
+    public void setMobile(String mobile)
+    {
         this.mobile = mobile;
     }
 }

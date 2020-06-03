@@ -1,5 +1,6 @@
 package org.example.Controller;
 
+import org.example.Model.Catagory;
 import org.example.Model.Post;
 import org.example.Model.User;
 import org.example.Services.PostServices;
@@ -43,6 +44,19 @@ public class postController {
 
         User u1= (User) sn.getAttribute("loggedUser");
         postx.setUser(u1); //database me post jisne create ki hai post table me user ki id saved
+        if(postx.getJavaBlog()!=null)
+        {
+            Catagory cjava=new Catagory();
+            cjava.setCatagory(cjava.getCatagory());
+postx.getCatagories().add(cjava);
+        }
+        if(postx.getSpringBlog()!=null)
+        {
+            Catagory cSpring =new Catagory();
+            cSpring.setCatagory(cSpring.getCatagory());
+            postx.getCatagories().add(cSpring);
+        }
+
         postService.createPost(postx); //ui se data database me jaau via post services
         return "redirect:/posts";
     }
